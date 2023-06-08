@@ -1,0 +1,183 @@
+<html>
+
+<head>
+    <title>Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="index.js"></script>
+</head>
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    #scroll-top {
+        display: none;
+    }
+</style>
+
+<body class="bg-gray-200">
+    <nav class="absolute w-full bg-gray-800 text-white z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="hidden md:block">
+                        <div class="flex items-baseline space-x-4">
+                            <a href="#main"
+                                class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                            <a href="#about"
+                                class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+                            <a href="#projects"
+                                class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                            <a href="#contact"
+                                class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-4 flex items-center md:ml-6">
+                        <div class="flex flex-row space-x-2">
+                            <p class="text-gray-300 px-3 py-2 rounded-md text-sm font-medium">Dark Mode</p>
+                            <label for="toogleTwo" class="flex cursor-pointer select-none items-center">
+                                <div class="relative">
+                                    <input id="toogleTwo" type="checkbox" class="sr-only" />
+                                    <div class="h-5 w-14 rounded-full bg-[#E5E7EB] shadow-inner"></div>
+                                    <div
+                                        class="dot shadow-switch-1 absolute left-0 -top-1 h-7 w-7 rounded-full bg-white transition">
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section id="main" class="min-h-screen flex items-center justify-center bg-gray-800 text-white px-4 py-4">
+        <div class="flex w-full max-w-4xl">
+            <div class="flex flex-col justify-center pr-8 w-full">
+                <h1 class="text-4xl font-bold mb-4">👋 Hi all, I'm Sam</h1>
+                <p class="text-xl mb-4">🚀 A passionate Full Stack Software Developer with experience building Web and
+                    Mobile applications using JavaScript, Reactjs, Nodejs, React Native, and other cool libraries and
+                    frameworks.</p>
+                <p class="text-xl">I'm currently a Year 2 Software Engineering student at Bournemouth University.</p>
+                <a href="#projects"
+                    class="inline-block mt-4 px-8 py-4 bg-blue-500 rounded text-white font-bold hover:bg-blue-600 transition-colors duration-300 shadow-2xl hover:shadow-inner">Explore
+                    Projects</a>
+                <a href="https://github.com/Monoto72"
+                    class="inline-block w-1/2 mt-4 px-8 py-4 bg-blue-500 rounded text-white font-bold hover:bg-blue-600 transition-colors duration-300 shadow-2xl hover:shadow-inner">View Source
+                </a>
+            </div>
+            <div class="flex w-1/2 items-center justify-center">
+                <img src="images\Me.jpeg" alt="Sam's Picture" class="object-cover h-full w-full rounded-md shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="min-h-screen flex items-center justify-center bg-gray-700 text-white px-4 py-4">
+
+    </section>
+
+    <section id="projects"
+        class="min-h-screen flex flex-col items-center justify-center bg-gray-800 text-white px-4 py-4">
+        <h1 class="text-4xl font-bold mb-2">Projects</h1>
+        <p class="mb-3 font-normal text-xs text-white-700 dark:text-white-400">Hover over the image to interchange them</p>
+        <div class="flex flex-row space-x-20">
+            <div
+                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 shadow-2xl">
+                <div class="p-5">
+                    <a href="slider.html" class="text-center">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Slider Project
+                            (Dating APP)</h5>
+                    </a>
+                    <a href="slider.html" class="items-center justify-center">
+                        <img id="slider-carousel" class="rounded-t-lg mx-auto" src="images/slider/SliderLanding.png" alt=""
+                            style="width:200px; height:auto" />
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">This innovative dating app was
+                        developed as part of a Year 2 project at Bournemouth University.</p>
+                    <a href="slider.html"
+                        class="inline-flex items-center px-3 py-2 text-sm font-medium bg-blue-500 rounded text-white font-bold hover:bg-blue-600 transition-colors duration-300 shadow-2xl hover:shadow-inner">
+                        Read more
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div
+                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 shadow-2xl">
+                <div class="p-5">
+                    <a href="#" class="text-center">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Slider Project
+                            (Dating APP)</h5>
+                    </a>
+                    <a href="#" class="items-center justify-center">
+                        <img class="rounded-t-lg mx-auto" src="images/slider/Slider.png" alt=""
+                            style="width:200px; height:auto" />
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">This innovative dating app was
+                        developed as part of a Year 2 project at Bournemouth University.</p>
+                    <a href="#"
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium bg-blue-500 rounded text-white font-bold hover:bg-blue-600 transition-colors duration-300 shadow-2xl hover:shadow-inner">
+                        Read more
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div
+                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 shadow-2xl">
+                <div class="p-5">
+                    <a href="#" class="text-center">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Slider Project
+                            (Dating APP)</h5>
+                    </a>
+                    <a href="#" class="items-center justify-center">
+                        <img class="rounded-t-lg mx-auto" src="images/slider/Slider.png" alt=""
+                            style="width:200px; height:auto" />
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">This innovative dating app was
+                        developed as part of a Year 2 project at Bournemouth University.</p>
+                    <a href="#"
+                        class="inline-flex items-center px-3 py-2 text-sm font-medium bg-blue-500 rounded text-white font-bold hover:bg-blue-600 transition-colors duration-300 shadow-2xl hover:shadow-inner">
+                        Read more
+                        <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <a href="#projects"
+            class="inline-block text-center mt-5 px-8 py-2 bg-blue-500 rounded text-white font-bold hover:bg-blue-600 transition-colors duration-300 shadow-2xl hover:shadow-inner">Click
+            here to see more</a>
+    </section>
+
+    <section id="contact" class="min-h-screen flex items-center justify-center bg-gray-700 text-white px-4 py-4">
+
+    </section>
+
+    <a href="#main" id="scroll-top" type="button" data-te-ripple-init data-te-ripple-color="light"
+        class="fixed bottom-5 right-5 inline-block rounded-full bg-white p-2 uppercase leading-normal text-black shadow-[0_4px_9px_-4px_white] transition duration-150 ease-in-out hover:bg-white-200 hover:shadow-[0_8px_9px_-4px_white,0_4px_18px_0_white] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_white,0_4px_18px_0_white] focus:outline-none focus:ring-0 active:bg-danger-700">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke-width="2.5"
+            stroke="currentColor" class="h-4 w-4">
+            <path fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"
+                d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75" clip-rule="evenodd" />
+        </svg>
+    </a>
+</body>
+
+</html>
