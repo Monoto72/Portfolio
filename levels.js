@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         for (let i = 0; i < levels.length; i++) {
             let segment = document.createElement('div');
-            segment.classList.add('sm:w-2','md:w-20', 'h-4', 'text-xs', 'text-center', 'rounded');
+            segment.classList.add('sm:w-2','md:w-20', 'h-4', 'text-xs', 'text-center', 'rounded', 'shadow-2xl');
 
             if (i < level) {
                 segment.classList.add('bg-green-400', 'text-white');
