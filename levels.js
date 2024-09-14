@@ -2,27 +2,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const generateBar = (level, language) => {
         const levels = ['Novice', 'Intermediate', 'Advanced', 'Expert', 'Master'];
 
-        let bar = document.createElement('div');
-        bar.className = 'flex flex-row items-center space-x-2';
+        let barWrapper = document.createElement('div');
+        barWrapper.className = 'bar-wrapper flex flex-row items-center space-x-2';
 
         let title = document.createElement('pre');
         title.textContent = language;
         title.className = 'text-lg w-full';
 
-        bar.appendChild(title);
+        let levelText = document.createElement('span');
+        levelText.textContent = `${levels[level - 1]}`;
+        levelText.className = 'level-text text-sm flex md:hidden';
 
         let levelsDiv = document.createElement('div');
-        levelsDiv.className = 'flex space-x-1';
+        levelsDiv.className = 'levels-bar flex space-x-1 hidden md:flex flex-grow';
 
         for (let i = 0; i < levels.length; i++) {
             let segment = document.createElement('div');
-            segment.className = `sm:w-2 md:w-20 h-4 text-xs text-center rounded shadow-2xl ${i < level ? 'bg-green-400 text-white' : 'bg-gray-200 text-black'}`;
+            segment.className = `segment flex-grow h-4 text-xs text-center rounded shadow-2xl ${i < level ? 'bg-green-400 text-white' : 'bg-gray-200 text-black'}`;
             levelsDiv.appendChild(segment);
         }
 
-        bar.appendChild(levelsDiv);
+        barWrapper.appendChild(title);
+        barWrapper.appendChild(levelText);
+        barWrapper.appendChild(levelsDiv);
 
-        return bar;
+        return barWrapper;
     };
 
     const categories = {

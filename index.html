@@ -50,6 +50,32 @@
         justify-content: center;
         height: 100%;
     }
+
+    .levels-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+    gap: 0.25rem;
+}
+
+.segment {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 20%;
+    min-width: 40px;
+    max-width: 100px;
+}
+
+.bar-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    width: 100%;
+}
+
 </style>
 
 <body class="bg-gray-200">
