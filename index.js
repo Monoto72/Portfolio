@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let mouseDown = false;
     let spawnInterval = null;
     let mousePos = { x: 0, y: 0 };
+    let debounceActive = false;
 
     const debounce = (func, wait) => {
         let timeout;
@@ -40,56 +41,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', debounce(updateActiveSection, 100));
 
+    let iconsClone = [...icons];
+
+    const spawnIcon = () => {
+        const existingTags = document.getElementsByClassName('i-tag');
+        if (existingTags.length > 10) return;
+
+        if (iconsClone.length === 0) {
+            iconsClone = [...icons];
+        }
+
+        const icon = iconsClone.pop();
+
+        const iTag = document.createElement('i');
+        iTag.classList.add('i-tag', icon, 'text-5xl', 'absolute');
+        iTag.style.left = mousePos.x + 'px';
+        iTag.style.top = mousePos.y + 'px';
+
+        document.body.appendChild(iTag);
+
+        setTimeout(() => {
+            iTag.style.opacity = 0;
+            setTimeout(() => {
+                if (iTag.parentNode) {
+                    iTag.parentNode.removeChild(iTag);
+                }
+            }, 1000);
+        }, 1000);
+
+        let pos = mousePos.y;
+        const initialPos = { x: mousePos.x, y: mousePos.y };
+
+        const frame = () => {
+            if (pos === 0) {
+                clearInterval(id);
+                if (iTag.parentNode) {
+                    iTag.parentNode.removeChild(iTag);
+                }
+            } else {
+                pos--;
+                iTag.style.top = pos + 'px';
+                iTag.style.left = initialPos.x + Math.sin(pos / 30) * 50 + 'px';
+
+                const scale = pos / initialPos.y;
+                iTag.style.transform = `scale(${scale})`;
+            }
+        };
+
+        const id = setInterval(frame, 10);
+    };
+
     document.body.onmousedown = (event) => {
-        if (event.button === 2 || event.button === 1 || event.target.tagName.toLowerCase() === 'a' || event.target.tagName.toLowerCase() === 'img' || event.target.tagName.toLowerCase() === 'button') return;
+        const excludedTags = new Set(['a', 'img', 'button', 'form', 'input', 'textarea']);
+
+        if (debounceActive || event.button !== 0 || excludedTags.has(event.target.tagName.toLowerCase()) || event.target.closest('a, button, form')) return;
 
         mouseDown = true;
         mousePos.x = event.pageX;
         mousePos.y = event.pageY;
 
-        const spawnIcon = () => {
-            const existingTags = document.getElementsByClassName('i-tag');
-            if (existingTags.length > 10) return;
-
-            const iTag = document.createElement('i');
-            const icon = icons[Math.floor(Math.random() * icons.length)];
-
-            iTag.classList.add('i-tag', icon, 'text-5xl', 'absolute');
-            iTag.style.left = mousePos.x + 'px';
-            iTag.style.top = mousePos.y + 'px';
-
-            document.body.appendChild(iTag);
-
-            setTimeout(() => {
-                iTag.style.opacity = 0;
-                setTimeout(() => {
-                    if (iTag.parentNode) {
-                        iTag.parentNode.removeChild(iTag);
-                    }
-                }, 1000);
-            }, 1000);
-
-            let pos = mousePos.y;
-            const initialPos = { x: mousePos.x, y: mousePos.y };
-
-            const frame = () => {
-                if (pos === 0) {
-                    clearInterval(id);
-                    if (iTag.parentNode) {
-                        iTag.parentNode.removeChild(iTag);
-                    }
-                } else {
-                    pos--;
-                    iTag.style.top = pos + 'px';
-                    iTag.style.left = initialPos.x + Math.sin(pos / 30) * 50 + 'px';
-
-                    const scale = pos / initialPos.y;
-                    iTag.style.transform = `scale(${scale})`;
-                }
-            };
-
-            const id = setInterval(frame, 10);
-        };
+        debounceActive = true;
+        setTimeout(() => debounceActive = false, 250);
 
         spawnIcon();
         spawnInterval = setInterval(spawnIcon, 250);
@@ -111,6 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (mouseDown) {
             mousePos.x = event.pageX;
             mousePos.y = event.pageY;
+        }
+    };
+
+    document.body.oncontextmenu = (event) => {
+        if (mouseDown) {
+            event.preventDefault();
         }
     };
 

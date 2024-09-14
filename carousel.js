@@ -1,6 +1,7 @@
 const images = [
     'slider.png',
     'portfolio.png',
+
 ];
 
 let currentIndex = 0;
