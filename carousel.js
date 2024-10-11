@@ -1,6 +1,6 @@
 const images = [
-    'slider.png',
-    'portfolio.png',
+    'Slider.png',
+    'Portfolio.png',
 
 ];
 
