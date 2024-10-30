@@ -19,8 +19,10 @@ function loadProjects() {
         const projectName = image.split('.')[0].toLowerCase();
         const aTag = document.createElement('a');
 
-        aTag.href = `${projectName}.html`;
-        aTag.className = 'h-96 w-96 rounded-lg shadow shadow-2xl transform transition-transform duration-200 hover:scale-105';
+        if (projectName === 'portfolio') aTag.href = `https://github.com/Monoto72/Portfolio`;
+        else aTag.href = `projects/${projectName}.html`;
+
+        aTag.className = 'h-72 w-72 md:h-96 md:w-96 rounded-lg shadow shadow-2xl transform transition-transform duration-200 hover:scale-105';
         aTag.innerHTML = `<img src="images/carousel/${image}" alt="${projectName} Project" class="object-cover h-full w-full rounded-md shadow-2xl">`;
 
         projectContainer.appendChild(aTag);
